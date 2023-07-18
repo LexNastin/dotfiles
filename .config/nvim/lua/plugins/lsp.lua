@@ -28,7 +28,7 @@ return {
             require("mason").setup()
 
             local ensure_installed = {}
-            for server, server_opts in pairs(opts.servers) do
+            for server, _ in pairs(opts.servers) do
                 ensure_installed[#ensure_installed + 1] = server
                 local capabilities = require("cmp_nvim_lsp").default_capabilities()
                 local final_opts = vim.tbl_deep_extend("force", {
@@ -38,7 +38,7 @@ return {
             end
 
             require("mason-lspconfig").setup({
-                ensure_installed = ensure_installed,  
+                ensure_installed = ensure_installed,
                 automatic_installation = true
             })
 
@@ -87,21 +87,12 @@ return {
                     { name = 'buffer' }
                 }
             })
-
-            cmp.setup.cmdline(':', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = 'path' }
-                }, {
-                    { name = 'cmdline' }
-                })
-            })
         end
     },
     {
         "jose-elias-alvarez/null-ls.nvim",
         dependencies = {
-            "williamboman/mason.nvim", 
+            "williamboman/mason.nvim",
             "nvim-lua/plenary.nvim"
         },
         lazy = false,
