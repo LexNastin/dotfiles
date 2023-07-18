@@ -1,3 +1,7 @@
+pcall(require, "config.options")
+pcall(require, "config.mappings")
+
+-- lazy.nvim setup
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -11,5 +15,3 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
-
-pcall(require, "config.options")

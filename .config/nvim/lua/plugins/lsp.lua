@@ -20,7 +20,8 @@ return {
         opts = {
             autoformat = true,
             servers = {
-                pyright = {}
+                pyright = {},
+                lua_ls = {}
             }
         },
         config = function(_, opts)
