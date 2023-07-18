@@ -3,6 +3,7 @@ local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
 opt.clipboard = "unnamedplus"
+opt.cmdheight = 0
 
 -- indentation
 opt.autoindent = true
