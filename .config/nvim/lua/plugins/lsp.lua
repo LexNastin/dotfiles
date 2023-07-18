@@ -31,8 +31,19 @@ return {
             for server, _ in pairs(opts.servers) do
                 ensure_installed[#ensure_installed + 1] = server
                 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+                local on_attach = function(_, bufnr)
+                    local keymap_opts = { buffer = bufnr, remap = false }
+                    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, keymap_opts)
+                    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, keymap_opts)
+                end
+                local handlers = {
+                    ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+                    ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+                }
                 local final_opts = vim.tbl_deep_extend("force", {
-                    capabilities = vim.deepcopy(capabilities)
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                    handlers = handlers
                 }, opts.servers[server] or {})
                 require("lspconfig")[server].setup(final_opts)
             end
@@ -51,8 +62,8 @@ return {
                 end,
                 },
                 window = {
-                -- completion = cmp.config.window.bordered(),
-                -- documentation = cmp.config.window.bordered(),
+                    completion = cmp.config.window.bordered(),
+                    documentation = cmp.config.window.bordered(),
                 },
                 mapping = cmp.mapping.preset.insert({
                     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
