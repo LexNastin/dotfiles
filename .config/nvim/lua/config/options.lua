@@ -4,6 +4,7 @@ opt.number = true
 opt.relativenumber = true
 opt.clipboard = "unnamedplus"
 opt.showmode = false
+opt.undofile = true
 
 -- indentation
 opt.autoindent = true
