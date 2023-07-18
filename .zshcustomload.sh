@@ -32,6 +32,11 @@ source $ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH_PLUGIN_DIR/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# fix tab completion
+__git_files () { 
+    _wanted files expl 'local files' _files     
+}
+
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
