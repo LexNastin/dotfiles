@@ -28,14 +28,14 @@ else
 	ZSH_PLUGIN_DIR="/usr/share/zsh/plugins"
 fi
 
-source $ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZSH_PLUGIN_DIR/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # fix tab completion
 __git_files () { 
     _wanted files expl 'local files' _files     
 }
+
+source $ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_PLUGIN_DIR/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
