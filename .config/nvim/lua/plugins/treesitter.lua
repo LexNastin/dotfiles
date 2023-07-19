@@ -2,7 +2,16 @@ return {{
     "nvim-treesitter/nvim-treesitter",
     config = function ()
         require("nvim-treesitter.configs").setup({
-            ensure_installed = { "lua", "python", "html", "rust", "javascript", "markdown", "bash" },
+            ensure_installed = {
+                "lua",
+                "python",
+                "html",
+                "rust",
+                "javascript",
+                "markdown",
+                "bash",
+                "vimdoc"
+            },
             sync_installed = false,
             auto_install = true,
             highlight = {
