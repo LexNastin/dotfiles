@@ -37,5 +37,22 @@ vim.keymap.set("n", "<leader>r", vim.cmd.SmartResizeMode)
 vim.keymap.set("n", "<leader>/", vim.cmd.CommentToggle)
 vim.keymap.set("x", "<leader>/", ":<C-u>call CommentOperator(visualmode())<CR>")
 
--- reindent
+
+-- indent stuff
 vim.keymap.set("x", "<Tab>", "=")
+vim.keymap.set("i", "<Tab>", function()
+    -- print(vim.fn.col("$") - 1)
+    if vim.fn.col("$") == 1 then
+        local keys = vim.api.nvim_replace_termcodes("-<Esc>=l$xa", true, false, true)
+        vim.api.nvim_feedkeys(keys, "n", false)
+        vim.schedule(function()
+            if vim.fn.col("$") == 1 then
+                local keys = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
+                vim.api.nvim_feedkeys(keys, "n", false)
+            end
+        end)
+    else
+        local keys = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
+        vim.api.nvim_feedkeys(keys, "n", false)
+    end
+end)
