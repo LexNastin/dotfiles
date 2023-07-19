@@ -39,12 +39,58 @@ vim.keymap.set("x", "<leader>/", ":<C-u>call CommentOperator(visualmode())<CR>")
 
 
 -- indent stuff
+local function cool_indent()
+    local keys = vim.api.nvim_replace_termcodes("<BS><Enter>", true, false, true)
+    vim.api.nvim_feedkeys(keys, "n", false)
+end
 vim.keymap.set("x", "<Tab>", "=")
-vim.keymap.set("i", "<Tab>", function()
-    -- print(vim.fn.col("$") - 1)
+vim.keymap.set("n", "i", function()
+    vim.cmd.startinsert()
     if vim.fn.col("$") == 1 then
-        local keys = vim.api.nvim_replace_termcodes("-<Esc>=l$xa", true, false, true)
-        vim.api.nvim_feedkeys(keys, "n", false)
+        cool_indent()
+    end
+end)
+vim.keymap.set("n", "a", function ()
+    local keys = vim.api.nvim_replace_termcodes("a", true, false, true)
+    vim.api.nvim_feedkeys(keys, "n", false)
+
+    if vim.fn.col("$") == 1 then
+        vim.schedule(function ()
+            cool_indent()
+        end)
+    end
+end)
+vim.keymap.set("n", "A", function ()
+    local keys = vim.api.nvim_replace_termcodes("A", true, false, true)
+    vim.api.nvim_feedkeys(keys, "n", false)
+
+    if vim.fn.col("$") == 1 then
+        vim.schedule(function ()
+            cool_indent()
+        end)
+    end
+end)
+vim.keymap.set("n", "p", function()
+    local curr_line = vim.fn.line(".")
+
+    local keys = vim.api.nvim_replace_termcodes("p", true, false, true)
+    vim.api.nvim_feedkeys(keys, "n", false)
+
+    vim.schedule(function()
+        if vim.fn.line(".") ~= curr_line then
+            local final_line = vim.fn.line("']")
+            local keys = vim.api.nvim_replace_termcodes(string.format("=%dG", final_line), true, false, true)
+            vim.api.nvim_feedkeys(keys, "n", false)
+        end
+    end)
+end)
+vim.keymap.set("n", "P", function()
+    local keys = vim.api.nvim_replace_termcodes("kp", true, false, true)
+    vim.api.nvim_feedkeys(keys, "m", false)
+end)
+vim.keymap.set("i", "<Tab>", function()
+    if vim.fn.col("$") == 1 then
+        cool_indent()
         vim.schedule(function()
             if vim.fn.col("$") == 1 then
                 local keys = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)

@@ -1,5 +1,5 @@
-pcall(require, "config.options")
-pcall(require, "config.mappings")
+require("config.options")
+require("config.mappings")
 
 -- lazy.nvim setup
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
