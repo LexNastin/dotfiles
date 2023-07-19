@@ -6,8 +6,8 @@ vim.keymap.set("i", "<A-BS>", "<C-w>")
 vim.keymap.set("i", "<C-BS>", "<C-w>")
 
 -- remap ctrl navigation bc macop
-vim.keymap.set({"n", "v", "i"}, "<A-Left>", "<C-Left>")
-vim.keymap.set({"n", "v", "i"}, "<A-Right>", "<C-Right>")
+vim.keymap.set({"n", "x", "i"}, "<A-Left>", "<C-Left>")
+vim.keymap.set({"n", "x", "i"}, "<A-Right>", "<C-Right>")
 
 -- edit file
 vim.keymap.set("n", "<leader>e", ":edit ")
@@ -32,3 +32,7 @@ vim.keymap.set("n", "<C-j>", vim.cmd.SmartCursorMoveDown)
 vim.keymap.set("n", "<C-k>", vim.cmd.SmartCursorMoveUp)
 vim.keymap.set("n", "<C-l>", vim.cmd.SmartCursorMoveRight)
 vim.keymap.set("n", "<leader>r", vim.cmd.SmartResizeMode)
+
+-- comments
+vim.keymap.set("n", "<leader>/", vim.cmd.CommentToggle)
+vim.keymap.set("x", "<leader>/", ":<C-u>call CommentOperator(visualmode())<CR>")
