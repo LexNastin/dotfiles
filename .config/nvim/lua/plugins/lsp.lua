@@ -37,8 +37,11 @@ return {
                     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, keymap_opts)
                 end
                 local handlers = {
-                    ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-                    ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+                    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+                    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+                    ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+                        update_in_insert = true
+                    })
                 }
                 local final_opts = vim.tbl_deep_extend("force", {
                     capabilities = capabilities,
