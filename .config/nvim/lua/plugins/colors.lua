@@ -10,6 +10,11 @@ return {{
         vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
         vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "none" })
 
+        -- line numbers
+        vim.api.nvim_set_hl(0, "LineNr", { fg = palette.lavender })
+        vim.api.nvim_set_hl(0, "LineNrAbove", { fg = palette.overlay1 })
+        vim.api.nvim_set_hl(0, "LineNrBelow", { fg = palette.overlay1 })
+
         -- bar colors
         vim.api.nvim_set_hl(0, "BufferCurrent", { bg = "none", fg = palette.green })
         vim.api.nvim_set_hl(0, "BufferCurrentADDED", { bg = "none" })
