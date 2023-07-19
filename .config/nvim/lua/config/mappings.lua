@@ -36,3 +36,6 @@ vim.keymap.set("n", "<leader>r", vim.cmd.SmartResizeMode)
 -- comments
 vim.keymap.set("n", "<leader>/", vim.cmd.CommentToggle)
 vim.keymap.set("x", "<leader>/", ":<C-u>call CommentOperator(visualmode())<CR>")
+
+-- reindent
+vim.keymap.set("x", "<Tab>", "=")
