@@ -20,5 +20,5 @@ yabai -m rule --add app="^kitty$" space=3
 yabai -m rule --add app="^Discord$" space=4
 open -a /Applications/kitty.app
 
-yabai -m signal --add event=application_launched app="^Mail$" action="sleep 0.5 && yabai -m query --windows | jq \".[] | select(.pid | tostring == env.YABAI_PROCESS_ID).id\" | xargs -I{} yabai -m window --close {}"
-yabai -m signal --add event=application_launched app="^WhatsApp$" action="sleep 0.5 && yabai -m query --windows | jq \".[] | select(.pid | tostring == env.YABAI_PROCESS_ID).id\" | xargs -I{} yabai -m window --close {}"
+yabai -m signal --add event=application_launched app="^Mail$" action="sleep 3 && yabai -m query --windows | jq \".[] | select(.pid | tostring == env.YABAI_PROCESS_ID).id\" | xargs -I{} yabai -m window --close {}"
+yabai -m signal --add event=application_launched app="^WhatsApp$" action="sleep 3 && yabai -m query --windows | jq \".[] | select(.pid | tostring == env.YABAI_PROCESS_ID).id\" | xargs -I{} yabai -m window --close {}"
