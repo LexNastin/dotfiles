@@ -86,6 +86,7 @@ vim.keymap.set("n", "P", function()
     vim.api.nvim_feedkeys(keys, "n", false)
 
     vim.schedule(function()
+        vim.cmd.undojoin()
         local final_line = vim.fn.line("']")
         local keys = vim.api.nvim_replace_termcodes(string.format("=%dG", final_line), true, false, true)
         vim.api.nvim_feedkeys(keys, "n", false)
