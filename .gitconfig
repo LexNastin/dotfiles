@@ -1,0 +1,6 @@
+[user]
+	signingkey = BBF9BFA2C2FE80F9
+	name = Lex Nastin
+	email = lexnastin@gmail.com
+[commit]
+	gpgsign = true
