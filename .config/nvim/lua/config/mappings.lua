@@ -71,9 +71,12 @@ vim.keymap.set("n", "A", function ()
     end
 end)
 vim.keymap.set("n", "p", function()
-    local count = vim.v.count
+    local count = tostring(vim.v.count)
+    if count == "0" then
+        count = ""
+    end
 
-    local keys = vim.api.nvim_replace_termcodes(string.format("%dp", count), true, false, true)
+    local keys = vim.api.nvim_replace_termcodes(string.format("%sp", count), true, false, true)
     vim.api.nvim_feedkeys(keys, "n", false)
 
     vim.schedule(function()
@@ -84,9 +87,13 @@ vim.keymap.set("n", "p", function()
     end)
 end)
 vim.keymap.set("n", "P", function()
-    local count = vim.v.count
+    local count = tostring(vim.v.count)
+    if count == "0" then
+        count = ""
+    end
 
-    local keys = vim.api.nvim_replace_termcodes(string.format("%dP", count), true, false, true)
+
+    local keys = vim.api.nvim_replace_termcodes(string.format("%sP", count), true, false, true)
     vim.api.nvim_feedkeys(keys, "n", false)
 
     vim.schedule(function()
