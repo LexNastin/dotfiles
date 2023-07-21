@@ -22,6 +22,8 @@ return {
             servers = {
                 pyright = {},
                 lua_ls = {},
+                -- for future me; your swift lsp is either not working because you're not in a swift/git directory, or
+                -- because you forgot to to install this: https://github.com/apple/sourcekit-lsp
                 sourcekit = { filetypes = { "swift", "objective-c", "objective-cpp" } } -- restrict apple's lsp to swift and obj-c(++) only
             }
         },
