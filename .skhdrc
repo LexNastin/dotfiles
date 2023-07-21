@@ -29,3 +29,5 @@ lalt + shift - right : yabai -m window --focus east
 
 # lalt - f : yabai -m space --layout "$(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')"
 lalt - f : yabai -m window --toggle zoom-fullscreen
+
+lalt + shift - q : yabai -m window --close
