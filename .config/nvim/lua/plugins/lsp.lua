@@ -21,7 +21,8 @@ return {
             autoformat = true,
             servers = {
                 pyright = {},
-                lua_ls = {}
+                lua_ls = {},
+                sourcekit = { filetypes = { "swift", "objective-c", "objective-cpp" } } -- restrict apple's lsp to swift and obj-c(++) only
             }
         },
         config = function(_, opts)
@@ -29,7 +30,9 @@ return {
 
             local ensure_installed = {}
             for server, _ in pairs(opts.servers) do
-                ensure_installed[#ensure_installed + 1] = server
+                if server ~= "sourcekit" then
+                    ensure_installed[#ensure_installed + 1] = server
+                end
                 local capabilities = require("cmp_nvim_lsp").default_capabilities()
                 local on_attach = function(_, bufnr)
                     local keymap_opts = { buffer = bufnr, remap = false }
@@ -103,6 +106,7 @@ return {
                     { name = 'buffer' }
                 }
             })
+            ::continue::
         end
     },
     {
