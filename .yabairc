@@ -4,14 +4,15 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 yabai -m config \
-    focus_follows_mouse autoraise \
+    focus_follows_mouse autofocus \
     top_padding 13 \
     bottom_padding 8 \
     left_padding 8 \
     right_padding 8 \
     window_gap 8 \
-    window_topmost on \
+    window_topmost off \
     window_shadow float \
+    window_placement second_child \
     layout bsp
 
 yabai -m rule --add app="^Safari$" space=1 layer=normal
@@ -19,6 +20,11 @@ yabai -m rule --add app="^Telegram$" space=2
 yabai -m rule --add app="^kitty$" space=3
 yabai -m rule --add app="^Discord$" space=4
 open -a /Applications/kitty.app
+
+yabai -m rule --add app='^System Information$' manage=off
+yabai -m rule --add app='^System Settings$' manage=off
+yabai -m rule --add title='Preferences$' manage=off
+yabai -m rule --add title='Settings$' manage=off
 
 yabai -m signal --add event=application_launched app="^Mail$" action="sleep 3 && yabai -m query --windows | jq \".[] | select(.pid | tostring == env.YABAI_PROCESS_ID).id\" | xargs -I{} yabai -m window --close {}"
 yabai -m signal --add event=application_launched app="^WhatsApp$" action="sleep 3 && yabai -m query --windows | jq \".[] | select(.pid | tostring == env.YABAI_PROCESS_ID).id\" | xargs -I{} yabai -m window --close {}"
