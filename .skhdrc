@@ -31,3 +31,4 @@ lalt + shift - right : yabai -m window --focus east
 lalt - f : yabai -m window --toggle zoom-fullscreen
 
 lalt + shift - q : yabai -m window --close
+lalt - 0x0A : swift ~/mouse.swift
