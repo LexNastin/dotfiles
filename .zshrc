@@ -109,6 +109,7 @@ alias py=python3
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	export EDITOR="/opt/homebrew/bin/nvim"
+    ssh-add --apple-use-keychain ~/.ssh/id_ed25519 > /dev/null 2&>1
 else
 	export EDITOR="/usr/bin/nvim"
 fi
