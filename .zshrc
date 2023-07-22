@@ -112,6 +112,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519 > /dev/null 2&>1
 else
 	export EDITOR="/usr/bin/nvim"
+    export BOX64_LOG=0
+    export BOX64_NOBANNER=1
 fi
 
 export NVM_DIR="$HOME/.nvm"
