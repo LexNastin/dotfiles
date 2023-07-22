@@ -49,4 +49,5 @@ sketchybar --add item battery right --set battery \
 sketchybar --add item wifi right --set wifi \
     script="$PLUGIN_DIR/wifi.sh" \
     --subscribe wifi wifi_change
-    '
+
+sketchybar --update
