@@ -134,6 +134,10 @@ alias m="nvim"
 alias sudo="sudo "
 alias gitc="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
+upd() {
+    git log $1...HEAD --oneline
+}
+
 regex="(^-S|^-R|^-U)"
 pacman() {
 	if [[ "$1" =~ $regex ]]
