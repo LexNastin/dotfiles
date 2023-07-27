@@ -10,7 +10,8 @@ return {{
                 "javascript",
                 "markdown",
                 "bash",
-                "vimdoc"
+                "vimdoc",
+                "dockerfile"
             },
             sync_installed = false,
             auto_install = true,
