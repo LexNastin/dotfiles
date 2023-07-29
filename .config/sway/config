@@ -197,3 +197,5 @@ input type:touchpad tap enabled
 input type:touchpad drag enabled
 input type:touchpad scroll_factor 0.5
 input type:touchpad dwt disabled
+
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
