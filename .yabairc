@@ -23,7 +23,7 @@ open -a /Applications/kitty.app
 
 yabai -m rule --add app='^System Information$' manage=off
 yabai -m rule --add app='^System Settings$' manage=off
-yabai -m rule --add app='^Toggl Track$' manage=off layer=above
+yabai -m rule --add app='^Toggl Track$' manage=off layer=normal
 yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='Settings$' manage=off
 yabai -m rule --add title='Info$' manage=off
