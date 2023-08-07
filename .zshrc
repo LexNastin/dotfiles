@@ -113,6 +113,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export DEVKITPATH=/opt/devkitpro
     export DEVKITARM=/opt/devkitpro/devkitARM
     export PATH=/opt/devkitpro/devkitA64/bin:$PATH
+    # export PATH=/opt/homebrew/Cellar/openjdk/20.0.1/bin:$PATH
 else
 	export EDITOR="/usr/bin/nvim"
     export BOX64_LOG=0
