@@ -139,6 +139,7 @@ alias sudo="sudo "
 alias gitc="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # make rm nicer:
 alias rm="rm -d"
+alias l="ls -lAh"
 
 upd() {
     git log $1...HEAD --oneline
