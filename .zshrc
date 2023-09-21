@@ -124,7 +124,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias n="nmtui"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias n="echo Not for MacOS!"
+else
+    alias n="nmtui"
+fi
 alias :q="exit"
 alias c="clear"
 alias x="cd; reset"
@@ -140,6 +144,12 @@ alias gitc="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # make rm nicer:
 alias rm="rm -d"
 alias l="ls -lAh"
+# alias mdcd="mkdir"
+
+mdcd() {
+    mkdir -p -- "$1"
+    cd "$1"
+}
 
 upd() {
     git log $1...HEAD --oneline

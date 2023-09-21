@@ -28,6 +28,7 @@ yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='Settings$' manage=off
 yabai -m rule --add title='Info$' manage=off
 yabai -m rule --add title='^Text search$' manage=off
+yabai -m rule --add app='^CarSim$' manage=off
 
 yabai -m signal --add event=application_launched app="^Mail$" action="sleep 3 && yabai -m query --windows | jq \".[] | select(.pid | tostring == env.YABAI_PROCESS_ID).id\" | xargs -I{} yabai -m window --close {}"
 yabai -m signal --add event=application_launched app="^WhatsApp$" action="sleep 3 && yabai -m query --windows | jq \".[] | select(.pid | tostring == env.YABAI_PROCESS_ID).id\" | xargs -I{} yabai -m window --close {}"
