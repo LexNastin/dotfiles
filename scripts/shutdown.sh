@@ -7,4 +7,4 @@ HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.ad
 hyprctl --batch "$HYPRCMDS"
 
 # schedule shutdown
-sudo shutdown now
+shutdown now
