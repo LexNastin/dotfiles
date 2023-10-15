@@ -1,0 +1,24 @@
+keymap:
+  - name: Default
+    remap:
+      M-a: C-a
+      M-c: C-c
+      M-v: C-v
+      M-Shift-c: C-Shift-c
+      M-Shift-v: C-Shift-v
+      M-t: C-t
+      M-w: C-w
+      M-r: C-r
+      M-f: C-f
+      Super-backspace: C-backspace
+      Super-delete: C-delete
+      M-backspace: [Shift-home, backspace]
+      M-delete: [Shift-end, delete]
+      Super-left: C-left
+      Super-right: C-right
+      M-left: home
+      M-right: end
+      M-z: C-z
+      M-y: C-y
+      M-Shift-z: C-Shift-z
+      Super_R-3: Shift-3
