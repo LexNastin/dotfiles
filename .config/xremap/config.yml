@@ -1,12 +1,6 @@
-modmap:
-  - name: Firefox
-    application:
-      only: firefox
-    remap:
-      Alt_L: Ctrl_L
-
 keymap:
   - name: Default
+    exact_match: true
     remap:
       M-a: C-a
       M-c: C-c
@@ -14,6 +8,9 @@ keymap:
       M-Shift-c: C-Shift-c
       M-Shift-v: C-Shift-v
       M-t: C-t
+      M-p: C-p
+      M-Shift-t: C-Shift-t
+      M-Shift-p: C-Shift-p
       M-w: C-w
       M-r: C-r
       M-f: C-f
