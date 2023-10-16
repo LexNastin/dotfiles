@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zshcustomload.sh
 
 # setup path
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 alias py=python3
 
