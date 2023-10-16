@@ -16,9 +16,13 @@ keymap:
       M-delete: [Shift-end, delete]
       Super-left: C-left
       Super-right: C-right
-      M-left: home
-      M-right: end
       M-z: C-z
       M-y: C-y
       M-Shift-z: C-Shift-z
       Super_R-3: Shift-3
+  - name: Except Firefox
+    application:
+      not: firefox
+    remap:
+      M-left: home
+      M-right: end
