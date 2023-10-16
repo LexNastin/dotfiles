@@ -3,6 +3,7 @@ keymap:
     exact_match: true
     remap:
       M-a: C-a
+      M-x: C-x
       M-c: C-c
       M-v: C-v
       M-Shift-c: C-Shift-c
