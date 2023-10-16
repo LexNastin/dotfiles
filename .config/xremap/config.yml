@@ -1,3 +1,10 @@
+modmap:
+  - name: Firefox
+    application:
+      only: firefox
+    remap:
+      Alt_L: Ctrl_L
+
 keymap:
   - name: Default
     remap:
@@ -10,6 +17,7 @@ keymap:
       M-w: C-w
       M-r: C-r
       M-f: C-f
+      M-s: C-s
       Super-backspace: C-backspace
       Super-delete: C-delete
       M-backspace: [Shift-home, backspace]
