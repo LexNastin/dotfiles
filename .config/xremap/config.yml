@@ -18,6 +18,10 @@ keymap:
       M-r: C-r
       M-f: C-f
       M-s: C-s
+      M-KEY_0: C-KEY_0
+      M-KEY_MINUS: C-KEY_MINUS
+      M-Shift-KEY_EQUAL: C-Shift-KEY_EQUAL
+      M-KEY_EQUAL: C-KEY_EQUAL
       Super-backspace: C-backspace
       Super-delete: C-delete
       M-backspace: [Shift-home, backspace]
