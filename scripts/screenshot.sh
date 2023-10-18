@@ -19,7 +19,7 @@ capwindow() {
     SSPATH="/tmp/screenshot_$RAND.png"
     AWSP=$(hyprctl activeworkspace -j | jq ".id")
     hyprctl clients -j | jq -r ".[] | select(.workspace.id == $AWSP) | .at + .size | map(tostring) | \"\(.[0]),\(.[1]) \(.[2])x\(.[3])\"" \
-        | slurp \
+        | slurp -c "#00000000" \
         | grim -g - "$SSPATH"
     ssdone
 }
@@ -28,7 +28,7 @@ capselection() {
     RAND=$(cat /dev/urandom | head -c 10 | xxd -p)
     SSPATH="/tmp/screenshot_$RAND.png"
     AWSP=$(hyprctl activeworkspace -j | jq ".id")
-    slurp | grim -g - "$SSPATH"
+    slurp -c "#00000000" | grim -g - "$SSPATH"
     ssdone
 }
 

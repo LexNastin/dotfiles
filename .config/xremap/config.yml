@@ -8,8 +8,10 @@ keymap:
       M-x: C-x
       M-Shift-c: C-Shift-c
       M-Shift-v: C-Shift-v
+      M-n: C-n
       M-t: C-t
       M-p: C-p
+      M-Shift-n: C-Shift-n
       M-Shift-t: C-Shift-t
       M-Shift-p: C-Shift-p
       M-w: C-w
