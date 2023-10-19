@@ -1,0 +1,94 @@
+/*   colors   */
+$primary: #2D032B;
+$primary-light: #60065B;
+$primary-dark: #130112;
+
+$secondary: #CA054D;
+$secondary-light: #F91066;
+$secondary-dark: #B30545;
+
+$accent: #7B80CC;
+$accent-light: #989CD7;
+$accent-dark: #5D64C0;
+
+/*   general variables   */
+$gap: 8px;
+$gap-small: 4px;
+$border-radius: 10px;
+$window-border: 2px solid;
+
+/*   reset everything   */
+* {
+    all: unset;
+    font-family: FiraCode Nerd Font Mono;
+    font-size: 13px;
+}
+
+/*   actual styling   */
+// workspace buttons
+.workspace-btns button {
+    border-radius: $border-radius;
+    padding-left: $gap;
+    padding-right: $gap;
+    margin: $gap-small;
+    margin-left: $gap;
+    background-color: transparentize($secondary, 0.6);
+
+    // active workspace
+    &.active {
+        background-color: transparentize($secondary-light, 0.5);
+    }
+}
+
+.csd menu {
+    padding: $gap;
+    padding-top: 0;
+    menuitem {
+        border-radius: $border-radius;
+        padding: $gap;
+        margin-top: $gap-small;
+        background-color: transparentize($secondary, 0.6);
+
+        &:hover {
+            background-color: transparentize($secondary-light, 0.5);
+        }
+    }
+}
+
+// top bars and systray menu
+.window, .csd {
+    @extend .window-background;
+    border-radius: $border-radius;
+    border: $window-border $accent-light;
+}
+
+menubar {
+    margin-right: $gap;
+}
+
+.window-background {
+    background-color: transparentize($primary-dark, 0.2);
+}
+
+.icon {
+    margin-right: $gap-small;
+    font-size: 16px;
+}
+
+.icon-2 {
+    @extend .icon;
+    font-size: 24px;
+}
+
+// spacing for general widgets
+.spacing {
+    margin-left: $gap;
+    margin-right: $gap;
+}
+
+/*   notch blending   */
+.notch-extension {
+    background-color: #000000;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+}

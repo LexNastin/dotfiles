@@ -1,0 +1,132 @@
+;   modules   ;
+(defwidget workspace-btn [id name]
+    (button
+        :class {hyprland.workspace == id ? "active" : ""}
+        :visible {hyprland.workspace == id ? true : hyprland.active_workspaces[id] == true}
+        :onclick "hyprctl dispatch workspace ${id}"
+        name
+    )
+)
+
+(defwidget workspaces []
+    (box :class "workspace-btns" :space-evenly false
+        (workspace-btn :id "1" :name "Firefox")
+        (workspace-btn :id "2" :name "Telegram")
+        (workspace-btn :id "3" :name "Terminal")
+        (workspace-btn :id "4" :name "Discord")
+        (workspace-btn :id "5" :name "5")
+        (workspace-btn :id "6" :name "6")
+        (workspace-btn :id "7" :name "7")
+        (workspace-btn :id "8" :name "8")
+        (workspace-btn :id "9" :name "9")
+        (workspace-btn :id "10" :name "10")
+    )
+)
+
+(defwidget wifi []
+    (box :space-evenly false :class "spacing"
+        (label :text {wifi.icon} :class "icon-2")
+        (label :text {wifi.message})
+    )
+)
+
+(defwidget battery [percentage status]
+    (box :space-evenly false :class "spacing"
+        (label :class "icon" :text {
+            status == "Charging" ? "󰂄" :
+                percentage < 10  ? "󰁺" :
+                percentage < 20  ? "󰁻" :
+                percentage < 30  ? "󰁼" :
+                percentage < 40  ? "󰁽" :
+                percentage < 50  ? "󰁾" :
+                percentage < 60  ? "󰁿" :
+                percentage < 70  ? "󰂀" :
+                percentage < 80  ? "󰂁" :
+                percentage < 90  ? "󰂂" :
+                                   "󰁹"
+        })
+        (label :text {percentage + "%"})
+    )
+)
+
+(defwidget clock []
+    (box :space-evenly false :class "spacing"
+        (label :text "" :class "icon-2")
+        (label :text datetime)
+    )
+)
+
+;   widgets   ;
+(defwidget left_bar []
+    (box :class "window"
+        (workspaces)
+    )
+)
+
+(defwidget right_bar []
+    (box :class "window"
+        :space-evenly false
+        (systray
+            :pack-direction "rtl"
+            :hexpand true
+        )
+        (wifi)
+        (battery
+            :percentage {EWW_BATTERY.macsmc-battery.capacity}
+            :status {EWW_BATTERY.macsmc-battery.status}
+        )
+        (clock)
+    )
+)
+
+;   polls / subscriptions   ;
+(deflisten hyprland "./scripts/hyprland.sh")
+(defpoll datetime :interval "1s" `date +"%d-%m-%Y %H:%M:%S"`)
+(defpoll wifi :interval "2s" "./scripts/wifi.sh")
+
+;   windows   ;
+(defwindow left_bar
+    :monitor 0 ;; Optional for X11
+    :stacking "fg"
+    :geometry (geometry
+        :x "8px"
+        :y "8px"
+        :width "721px"
+        :height "36px"
+    )
+    (left_bar)
+)
+
+(defwindow right_bar
+    :monitor 0 ;; Optional for X11
+    :stacking "fg"
+    :geometry (geometry
+        :x "951px"
+        :y "8px"
+        :width "721px"
+        :height "36px"
+        )
+    (right_bar)
+)
+
+(defwindow notch_extension
+    :monitor 0
+    :stacking "fg"
+    :geometry (geometry
+        :x "737px"
+        :y "0px"
+        :width "206px"
+        :height "44px"
+    )
+    (box :class "notch-extension")
+)
+
+(defwindow lockscreen
+    :monitor 0
+    :stacking "overlay"
+    :geometry (geometry
+        :width "100%"
+        :height "100%"
+    )
+    (box :class "window-background")
+)

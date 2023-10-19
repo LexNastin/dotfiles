@@ -151,6 +151,12 @@ mdcd() {
     cd "$1"
 }
 
+nvsh() {
+    echo "#!/bin/sh\n\n" > "$1"
+    chmod +x "$1"
+    nvim "$1"
+}
+
 upd() {
     git log $1...HEAD --oneline
 }
