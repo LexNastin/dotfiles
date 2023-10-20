@@ -1,7 +1,6 @@
 #!/bin/sh
 
 WORKSPACE=$(hyprctl activeworkspace -j | jq ".id")
-handle "workspace>>$WORKSPACE"
 
 handle() {
     case "$1" in
@@ -13,4 +12,5 @@ handle() {
     echo "{\"workspace\": \"$WORKSPACE\", \"active_workspaces\": $ACTIVE_WORKSPACES}"
 }
 
+handle "workspace>>$WORKSPACE"
 socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done

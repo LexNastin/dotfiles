@@ -11,6 +11,10 @@ $accent: #7B80CC;
 $accent-light: #989CD7;
 $accent-dark: #5D64C0;
 
+/*   font   */
+$font: FiraCode Nerd Font Mono;
+$font-size: 13px;
+
 /*   general variables   */
 $gap: 8px;
 $gap-small: 4px;
@@ -20,8 +24,8 @@ $window-border: 2px solid;
 /*   reset everything   */
 * {
     all: unset;
-    font-family: FiraCode Nerd Font Mono;
-    font-size: 13px;
+    font-family: $font;
+    font-size: $font-size;
 }
 
 /*   actual styling   */
@@ -58,8 +62,7 @@ $window-border: 2px solid;
 // top bars and systray menu
 .window, .csd {
     @extend .window-background;
-    border-radius: $border-radius;
-    border: $window-border $accent-light;
+    @extend .window-border;
 }
 
 menubar {
@@ -70,6 +73,11 @@ menubar {
     background-color: transparentize($primary-dark, 0.2);
 }
 
+.window-border {
+    border-radius: $border-radius;
+    border: $window-border $accent-light;
+}
+
 .icon {
     margin-right: $gap-small;
     font-size: 16px;
@@ -78,6 +86,21 @@ menubar {
 .icon-2 {
     @extend .icon;
     font-size: 24px;
+}
+
+.bigclock {
+    font-size: 64px;
+}
+
+.bigdate {
+    font-size: 48px;
+}
+
+.big-time-date {
+    @extend .window-border;
+    padding: 32px;
+    margin: 256px;
+    margin-right: 48px;
 }
 
 // spacing for general widgets

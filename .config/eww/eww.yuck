@@ -52,8 +52,16 @@
 (defwidget clock []
     (box :space-evenly false :class "spacing"
         (label :text "" :class "icon-2")
-        (label :text datetime)
+        (label :text "${datetime.date} ${datetime.time}")
     )
+)
+
+(defwidget bigclock []
+    (label :text "${datetime.time}" :class "bigclock")
+)
+
+(defwidget bigdate []
+    (label :text "${datetime.date}" :class "bigdate")
 )
 
 ;   widgets   ;
@@ -79,9 +87,25 @@
     )
 )
 
+(defwidget lockscreen []
+    (box
+        :orientation "v"
+        :space-evenly false
+        :valign "start"
+        :halign "end"
+        (label :text "Hey there!")
+        (box
+            :orientation "v"
+            :class "big-time-date"
+            (bigclock)
+            (bigdate)
+        )
+    )
+)
+
 ;   polls / subscriptions   ;
 (deflisten hyprland "./scripts/hyprland.sh")
-(defpoll datetime :interval "1s" `date +"%d-%m-%Y %H:%M:%S"`)
+(defpoll datetime :interval "1s" `date +'{"date": "%d-%m-%Y", "time": "%H:%M:%S"}'`)
 (defpoll wifi :interval "2s" "./scripts/wifi.sh")
 
 ;   windows   ;
@@ -128,5 +152,7 @@
         :width "100%"
         :height "100%"
     )
-    (box :class "window-background")
+    (box :class "window-background"
+        (lockscreen)
+    )
 )
