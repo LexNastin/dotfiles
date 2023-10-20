@@ -64,6 +64,23 @@
     (label :text "${datetime.date}" :class "bigdate")
 )
 
+(defwidget lockscreen_greeting []
+    (label
+        :halign "center"
+        :class "lockscreen-greeting"
+        :text "Hey there!"
+    )
+)
+
+(defwidget big_time_date []
+    (box
+        :orientation "v"
+        :class "big-time-date"
+        (bigclock)
+        (bigdate)
+    )
+)
+
 ;   widgets   ;
 (defwidget left_bar []
     (box :class "window"
@@ -93,13 +110,8 @@
         :space-evenly false
         :valign "start"
         :halign "end"
-        (label :text "Hey there!")
-        (box
-            :orientation "v"
-            :class "big-time-date"
-            (bigclock)
-            (bigdate)
-        )
+        (lockscreen_greeting)
+        (big_time_date)
     )
 )
 

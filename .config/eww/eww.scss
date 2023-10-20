@@ -99,8 +99,14 @@ menubar {
 .big-time-date {
     @extend .window-border;
     padding: 32px;
-    margin: 256px;
+    margin: 32px;
+    margin-left: 48px;
     margin-right: 48px;
+}
+
+.lockscreen-greeting {
+    font-size: 48px;
+    margin-top: 160px;
 }
 
 // spacing for general widgets

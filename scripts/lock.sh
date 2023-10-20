@@ -21,7 +21,7 @@ swaylock \
     --indicator-idle-visible \
     --indicator-radius 64 \
     --indicator-thickness 2 \
-    --indicator-x-position 1450 \
+    --indicator-x-position 1440 \
     --indicator-y-position 600 \
     --inside-color 00000000 \
     --inside-clear-color 00000000 \
