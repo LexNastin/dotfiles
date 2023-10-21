@@ -154,7 +154,9 @@
         :width "206px"
         :height "44px"
     )
-    (box :class "notch-extension")
+    (box :class "notch-extension"
+        "get a mac, smh my head"
+    )
 )
 
 (defwindow lockscreen
