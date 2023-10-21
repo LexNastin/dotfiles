@@ -18,6 +18,7 @@ keymap:
       M-r: C-r
       M-f: C-f
       M-s: C-s
+      M-l: C-l
       M-KEY_0: C-KEY_0
       M-Shift-KEY_MINUS: C-Shift-KEY_MINUS
       M-KEY_MINUS: C-KEY_MINUS
