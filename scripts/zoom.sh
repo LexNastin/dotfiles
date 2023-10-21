@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ZOOM_FACTOR=0.15
 
 change() {
