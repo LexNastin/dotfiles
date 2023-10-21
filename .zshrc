@@ -118,6 +118,7 @@ else
 	export EDITOR="/usr/bin/nvim"
     export BOX64_LOG=0
     export BOX64_NOBANNER=1
+    export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
 fi
 
 export NVM_DIR="$HOME/.nvm"
