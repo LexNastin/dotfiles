@@ -147,7 +147,7 @@ alias vim="nvim"
 alias v="nvim"
 alias nv="nvim"
 alias m="nvim"
-alias sudo="sudo -E "
+alias sudo='sudo -E TERMINFO="/usr/lib/kitty/terminfo" '
 alias gitc="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # make rm nicer:
 alias rm="rm -d"
