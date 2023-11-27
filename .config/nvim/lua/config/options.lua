@@ -6,7 +6,7 @@ opt.clipboard = "unnamedplus"
 opt.showmode = false
 opt.undofile = true
 opt.scl = "yes"
-opt.hlsearch = false
+opt.hlsearch = true
 
 -- indentation
 opt.autoindent = true
