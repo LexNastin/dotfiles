@@ -116,11 +116,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # export PATH=/opt/homebrew/Cellar/openjdk/20.0.1/bin:$PATH
 
     # perl setup
-    PATH="/Users/lexnastin/perl5/bin${PATH:+:${PATH}}"; export PATH;
-    PERL5LIB="/Users/lexnastin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-    PERL_LOCAL_LIB_ROOT="/Users/lexnastin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-    PERL_MB_OPT="--install_base \"/Users/lexnastin/perl5\""; export PERL_MB_OPT;
-    PERL_MM_OPT="INSTALL_BASE=/Users/lexnastin/perl5"; export PERL_MM_OPT;
+    export XDG_DATA_DIRS=/opt/homebrew/share
+    # PATH="/Users/lexnastin/perl5/bin${PATH:+:${PATH}}"; export PATH;
+    # PERL5LIB="/Users/lexnastin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+    # PERL_LOCAL_LIB_ROOT="/Users/lexnastin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+    # PERL_MB_OPT="--install_base \"/Users/lexnastin/perl5\""; export PERL_MB_OPT;
+    # PERL_MM_OPT="INSTALL_BASE=/Users/lexnastin/perl5"; export PERL_MM_OPT;
 else
 	export EDITOR="/usr/bin/nvim"
     export BOX64_LOG=0
