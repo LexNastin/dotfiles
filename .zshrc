@@ -181,3 +181,4 @@ pacman() {
 }
 
 ~/scripts/check_missing.sh
+neofetch
