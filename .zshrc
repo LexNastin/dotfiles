@@ -107,8 +107,10 @@ export PATH=$HOME/.local/bin:$PATH
 
 alias py=python3
 
+alias sudoi="$(which sudo) -i "
+alias snv="$(which sudo) -e"
+alias sudo='sudo -E '
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	export EDITOR="/opt/homebrew/bin/nvim"
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519 > /dev/null 2&>1
     export DEVKITPATH=/opt/devkitpro
     export DEVKITARM=/opt/devkitpro/devkitARM
@@ -122,25 +124,28 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # PERL_LOCAL_LIB_ROOT="/Users/lexnastin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
     # PERL_MB_OPT="--install_base \"/Users/lexnastin/perl5\""; export PERL_MB_OPT;
     # PERL_MM_OPT="INSTALL_BASE=/Users/lexnastin/perl5"; export PERL_MM_OPT;
+    alias n="echo Not for MacOS!"
 else
-	export EDITOR="/usr/bin/nvim"
     export BOX64_LOG=0
     export BOX64_NOBANNER=1
     export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
+
+    alias n="nmtui"
+    if [[ "$KITTY_WINDOW_ID" ]]; then
+        alias sudo='sudo -E TERMINFO="/usr/lib/kitty/terminfo" '
+    fi
 fi
 
+[ $(command -v nvim) ] && export EDITOR="$(which nvim)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    alias n="echo Not for MacOS!"
-else
-    alias n="nmtui"
-fi
+
 alias :q="exit"
 alias c="clear"
 alias x="cd; reset"
+alias zzh="$(which ssh)"
 if [[ "$KITTY_WINDOW_ID" ]]; then
 	alias ssh="kitty +kitten ssh"
 fi
@@ -148,7 +153,6 @@ alias vim="nvim"
 alias v="nvim"
 alias nv="nvim"
 alias m="nvim"
-alias sudo='sudo -E TERMINFO="/usr/lib/kitty/terminfo" '
 alias gitc="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # make rm nicer:
 alias rm="rm -d"
