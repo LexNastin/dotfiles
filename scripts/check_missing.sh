@@ -12,7 +12,7 @@ missing=()
 [ ! $(command -v sudo) ] && missing+=("sudo")
 
 # fonts
-#[ check font ] && missing+=("FiraCode Nerd Font Mono")
+[ -z "$(fc-list | grep "FiraCode Nerd Font Mono")" ] && missing+=("FiraCode Nerd Font Mono")
 
 # linux commands
 [[ "$OSTYPE" != "darwin"* ]] && [ ! $(command -v firefox) ] && missing+=("firefox")
@@ -39,7 +39,7 @@ missing=()
 
 output=''
 
-for i in ${missing[@]}; do
+for i in "${missing[@]}"; do
     output+=$'\n'
     output+="$i"
 done
