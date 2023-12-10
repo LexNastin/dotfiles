@@ -12,7 +12,7 @@ missing=()
 [ ! $(command -v sudo) ] && missing+=("sudo")
 
 # fonts
-[ -z "$(fc-list | grep "FiraCode Nerd Font Mono")" ] && missing+=("FiraCode Nerd Font Mono")
+[ $(command -v fc-list) ] && [ -z "$(fc-list | grep "FiraCode Nerd Font Mono")" ] && missing+=("FiraCode Nerd Font Mono")
 
 # linux commands
 [[ "$OSTYPE" != "darwin"* ]] && [ ! $(command -v firefox) ] && missing+=("firefox")
@@ -36,6 +36,7 @@ missing=()
 [[ "$OSTYPE" == "darwin"* ]] && [ ! $(command -v sketchybar) ] && missing+=("sketchybar")
 [[ "$OSTYPE" == "darwin"* ]] && [ ! $(command -v yabai) ] && missing+=("yabai")
 [[ "$OSTYPE" == "darwin"* ]] && [ ! $(command -v skhd) ] && missing+=("skhd")
+[[ "$OSTYPE" == "darwin"* ]] && [ ! $(command -v xquartz) ] && missing+=("xquartz")
 
 output=''
 
