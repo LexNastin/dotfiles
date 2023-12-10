@@ -100,8 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-~/scripts/check_missing.sh
-
 source ~/.zshcustomload.sh
 
 # setup path
@@ -181,3 +179,5 @@ pacman() {
 		/usr/bin/pacman $@
 	fi
 }
+
+~/scripts/check_missing.sh
