@@ -12,7 +12,7 @@ mkdir deps
 cd deps
 mkdir skia
 cd skia
-curl -L https://github.com/aseprite/skia/releases/download/m81-b607b32047/Skia-macOS-Release-x64.zip | tar zx
+curl -L https://github.com/aseprite/skia/releases/download/m102-861e4743af/Skia-macOS-Release-arm64.zip | tar zx
 # Install aseprite at $HOME/aseprite
 cd $HOME
 git clone --recursive https://github.com/aseprite/aseprite.git
@@ -21,12 +21,14 @@ mkdir build
 cd build
 cmake \
   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-  -DCMAKE_OSX_ARCHITECTURES=x86_64 \
-  -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 \
-  -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \
+  -DCMAKE_OSX_ARCHITECTURES=arm64 \
+  -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0 \
+  -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk \
   -DLAF_BACKEND=skia \
   -DSKIA_DIR=$HOME/deps/skia \
-  -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \
+  -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-arm64 \
+  -DSKIA_LIBRARY=$HOME/deps/skia/out/Release-arm64/libskia.a \
+  -DPNG_ARM_NEON:STRING=on \
   -G Ninja \
   ..
 ninja aseprite
