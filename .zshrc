@@ -112,6 +112,7 @@ alias snv="$(which sudo) -e"
 alias sudo='sudo -E '
 if [[ "$OSTYPE" == "darwin"* ]]; then
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519 > /dev/null 2&>1
+    ssh-add --apple-use-keychain ~/.ssh/id_ed25519_alt > /dev/null 2&>1
     export DEVKITPATH=/opt/devkitpro
     export DEVKITARM=/opt/devkitpro/devkitARM
     export PATH=/opt/devkitpro/devkitA64/bin:$PATH
