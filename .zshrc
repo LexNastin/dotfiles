@@ -126,6 +126,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # PERL_MB_OPT="--install_base \"/Users/lexnastin/perl5\""; export PERL_MB_OPT;
     # PERL_MM_OPT="INSTALL_BASE=/Users/lexnastin/perl5"; export PERL_MM_OPT;
     alias n="echo Not for MacOS!"
+    alias reboob="sudo reboot"
 else
     export BOX64_LOG=0
     export BOX64_NOBANNER=1
@@ -135,6 +136,7 @@ else
     if [[ "$KITTY_WINDOW_ID" ]]; then
         alias sudo='sudo -E TERMINFO="/usr/lib/kitty/terminfo" '
     fi
+    alias reboot="reboot"
 fi
 
 [ $(command -v nvim) ] && export EDITOR="$(which nvim)"
