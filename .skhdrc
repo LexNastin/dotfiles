@@ -11,16 +11,16 @@
 # lalt - 9 : yabai -m space --focus 9
 # lalt - 0 : yabai -m space --focus 10
 
-lalt + shift - 1 : yabai -m window --space 1
-lalt + shift - 2 : yabai -m window --space 2
-lalt + shift - 3 : yabai -m window --space 3
-lalt + shift - 4 : yabai -m window --space 4
-lalt + shift - 5 : yabai -m window --space 5
-lalt + shift - 6 : yabai -m window --space 6
-lalt + shift - 7 : yabai -m window --space 7
-lalt + shift - 8 : yabai -m window --space 8
-lalt + shift - 9 : yabai -m window --space 9
-lalt + shift - 0 : yabai -m window --space 10
+lalt + shift - 1 : yabai -m window --space 1 && sketchybar --update
+lalt + shift - 2 : yabai -m window --space 2 && sketchybar --update
+lalt + shift - 3 : yabai -m window --space 3 && sketchybar --update
+lalt + shift - 4 : yabai -m window --space 4 && sketchybar --update
+lalt + shift - 5 : yabai -m window --space 5 && sketchybar --update
+lalt + shift - 6 : yabai -m window --space 6 && sketchybar --update
+lalt + shift - 7 : yabai -m window --space 7 && sketchybar --update
+lalt + shift - 8 : yabai -m window --space 8 && sketchybar --update
+lalt + shift - 9 : yabai -m window --space 9 && sketchybar --update
+lalt + shift - 0 : yabai -m window --space 10 && sketchybar --update
 
 lalt + shift - left : yabai -m window --focus west
 lalt + shift - down : yabai -m window --focus south
