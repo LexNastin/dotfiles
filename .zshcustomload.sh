@@ -25,7 +25,11 @@ WORDCHARS=${WORDCHARS//\/[&.;]}
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	ZSH_PLUGIN_DIR="/opt/homebrew/share"
 else
-	ZSH_PLUGIN_DIR="/usr/share/zsh/plugins"
+	if [ -f /etc/redhat-release ]; then
+		ZSH_PLUGIN_DIR="/usr/share"
+	else
+		ZSH_PLUGIN_DIR="/usr/share/zsh/plugins"
+	fi
 fi
 
 # fix tab completion
