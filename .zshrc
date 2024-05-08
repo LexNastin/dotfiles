@@ -136,7 +136,7 @@ else
     if [[ "$KITTY_WINDOW_ID" ]]; then
         alias sudo='sudo -E TERMINFO="/usr/lib/kitty/terminfo" '
     fi
-    alias reboob="reboot"
+    alias reboob="sudo asahi-bless && reboot"
 fi
 
 [ $(command -v nvim) ] && export EDITOR="$(which nvim)"
