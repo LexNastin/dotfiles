@@ -1,6 +1,6 @@
 #!/bin/sh
 
-INFO="$(/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport -I  | awk -F' SSID: '  '/ SSID: / {print $2}')"
+INFO="$(networksetup -listallhardwareports | awk '/Wi-Fi/{getline; print $2}' | xargs networksetup -getairportnetwork | sed "s/Current Wi-Fi Network: //")"
 
 WIFI=${INFO:-"Not Connected"}
 ICON="󰤨"
