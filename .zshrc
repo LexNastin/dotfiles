@@ -126,7 +126,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # PERL_MB_OPT="--install_base \"/Users/lexnastin/perl5\""; export PERL_MB_OPT;
     # PERL_MM_OPT="INSTALL_BASE=/Users/lexnastin/perl5"; export PERL_MM_OPT;
     alias n="echo Not for MacOS!"
-    alias reboob="sudo reboot"
+    alias reboob="sudo ~/scripts/asahi-bless-macos.sh && sudo reboot"
 else
     export BOX64_LOG=0
     export BOX64_NOBANNER=1
