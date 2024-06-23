@@ -22,7 +22,12 @@ fi
 # single password...)
 htpasswd -vb ~/.config/sketchybar/wifiname.txt "wifiname" "$INFO"
 if [[ $? == 0 ]]; then
-    networksetup -switchtolocation Home
+    ping 192.168.68.1 -c 1 -t 2
+    if [[ $? == 0 ]]; then
+        networksetup -switchtolocation Home
+    else
+        networksetup -switchtolocation Automatic
+    fi
 else
     networksetup -switchtolocation Automatic
 fi
