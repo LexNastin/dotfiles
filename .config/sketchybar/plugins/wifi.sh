@@ -22,10 +22,12 @@ fi
 # single password...)
 htpasswd -vb ~/.config/sketchybar/wifiname.txt "wifiname" "$INFO"
 if [[ $? == 0 ]]; then
-    if [[ "$(netstat -rn | grep 'default' | grep en0 | awk '{print $2}')" == "192.168.68.1" ]]; then
-        networksetup -switchtolocation Home
-    else
-        networksetup -switchtolocation Automatic
+    if [[ -n "$(netstat -rn | grep 'default' | grep en0)" ]]; then
+        if [[ "$(netstat -rn | grep 'default' | grep en0 | awk '{print $2}')" == "192.168.68.1" ]]; then
+            networksetup -switchtolocation Home
+        else
+            networksetup -switchtolocation Automatic
+        fi
     fi
 else
     networksetup -switchtolocation Automatic
