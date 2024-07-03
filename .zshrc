@@ -127,6 +127,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # PERL_MM_OPT="INSTALL_BASE=/Users/lexnastin/perl5"; export PERL_MM_OPT;
     alias n="echo Not for MacOS!"
     alias reboob="sudo ~/scripts/asahi-bless-macos.sh && sudo reboot"
+    alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 else
     export BOX64_LOG=0
     export BOX64_NOBANNER=1
