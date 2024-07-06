@@ -1,4 +1,10 @@
 keypress_delay_ms: 50
+modmap:
+  - name: A/D Shortcuts
+    remap:
+      SHIFT_R:
+        alone:
+          set_mode: ad
 keymap:
   - name: Default
     # keypress_delay_ms: 25
@@ -55,3 +61,11 @@ keymap:
     remap:
       M-c: C-c
       M-v: C-v
+  - name: A/D Shortcuts
+    remap:
+      Esc:
+        set_mode: default
+      d:
+        launch: ["bash", "-c", "echo TODO 'docker compose up -d --build\n'"]
+        set_mode: default
+    mode: ad
