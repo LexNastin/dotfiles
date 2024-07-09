@@ -104,6 +104,7 @@ source ~/.zshcustomload.sh
 
 # setup path
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 
 alias py=python3
 
