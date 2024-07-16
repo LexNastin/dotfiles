@@ -110,7 +110,6 @@ alias py=python3
 
 alias sudoi="$(which sudo) -i "
 alias snv="$(which sudo) -e"
-alias sudo='sudo -E '
 if [[ "$OSTYPE" == "darwin"* ]]; then
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519 > /dev/null 2&>1
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519_alt > /dev/null 2&>1
@@ -130,6 +129,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias reboob="sudo ~/scripts/asahi-bless-macos.sh && sudo reboot"
     alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 else
+    alias sudo='sudo -E '
     export BOX64_LOG=0
     export BOX64_NOBANNER=1
     export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
