@@ -4,3 +4,5 @@
 	email = lexnastin@gmail.com
 [commit]
 	gpgsign = true
+[push]
+	autoSetupRemote = true
