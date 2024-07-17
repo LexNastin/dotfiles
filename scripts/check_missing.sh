@@ -10,6 +10,7 @@ missing=()
 [ ! $(command -v rich) ] && missing+=("rich-cli")
 [ ! $(command -v neofetch ) ] && missing+=("neofetch")
 [ ! $(command -v sudo) ] && missing+=("sudo")
+[ ! $(command -v node) ] && missing+=("node.js")
 
 # fonts
 [ $(command -v fc-list) ] && [ -z "$(fc-list | grep "FiraCode Nerd Font Mono")" ] && missing+=("FiraCode Nerd Font Mono")
