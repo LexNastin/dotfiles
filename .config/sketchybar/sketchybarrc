@@ -21,7 +21,11 @@ sketchybar --default \
     background.corner_radius=8
 
 # left side
-SPACE_ICONS=("Safari" "Telegram" "Terminal" "Discord" "Music" "6" "7" "8" "9" "Slack")
+if [ -e ~/.work ]; then
+    SPACE_ICONS=("Safari" "Telegram" "Terminal" "Linear" "Music" "6" "7" "8" "9" "Slack")
+else
+    SPACE_ICONS=("Safari" "Telegram" "Terminal" "Discord" "Music" "6" "7" "8" "9" "Slack")
+fi
 
 for i in "${!SPACE_ICONS[@]}"
 do
