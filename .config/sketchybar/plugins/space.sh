@@ -12,4 +12,12 @@ if [[ $(yabai -m query --spaces --space $SID | jq -re ".windows != [] or .\"has-
     DRAWING="on"
 fi
 
-sketchybar --set $NAME background.color=$COLOR drawing=$DRAWING
+if [[ $NAME == "space.6" ]] && [[ "$(yabai -m query --spaces --space 6 | jq ".windows[]" | xargs -L1 -I"{}" yabai -m query --windows --window "{}" | jq ".app")" == *Xcode* ]]; then
+    sketchybar --set $NAME background.color=$COLOR drawing=$DRAWING label="Xcode"
+else
+    if [[ $NAME == "space.6" ]]; then
+        sketchybar --set $NAME background.color=$COLOR drawing=$DRAWING label="$SID"
+    else
+        sketchybar --set $NAME background.color=$COLOR drawing=$DRAWING
+    fi
+fi
