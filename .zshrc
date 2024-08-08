@@ -114,6 +114,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519 > /dev/null 2&>1
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519_alt > /dev/null 2&>1
     export DEVKITPATH=/opt/devkitpro
+    export DEVKITPRO=/opt/devkitpro
     export DEVKITARM=/opt/devkitpro/devkitARM
     export PATH=/opt/devkitpro/devkitA64/bin:$PATH
     # export PATH=/opt/homebrew/Cellar/openjdk/20.0.1/bin:$PATH
