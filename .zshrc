@@ -190,5 +190,15 @@ pacman() {
 	fi
 }
 
+ls-if-empty() {
+    if [[ -z "$BUFFER" ]]; then
+        echo
+        l
+    fi
+    zle accept-line
+}
+zle -N ls-if-empty
+bindkey "^M" ls-if-empty
+
 ~/scripts/check_missing.sh
 neofetch
