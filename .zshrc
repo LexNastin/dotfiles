@@ -150,7 +150,7 @@ export NVM_DIR="$HOME/.nvm"
 
 alias :q="exit"
 alias c="clear"
-alias x="cd; reset"
+alias x="cd; reset; neofetch"
 alias zzh="$(which ssh)"
 if [[ "$KITTY_WINDOW_ID" ]]; then
 	alias ssh="kitty +kitten ssh"
