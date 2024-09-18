@@ -200,5 +200,12 @@ ls-if-empty() {
 zle -N ls-if-empty
 bindkey "^M" ls-if-empty
 
+bdiff() {
+    xxd "$1" > "/tmp/$(basename $1).hex"
+    xxd "$2" > "/tmp/$(basename $2).hex"
+    diff "/tmp/$(basename $1).hex" "/tmp/$(basename $2).hex"
+    rm "/tmp/$(basename $1).hex" "/tmp/$(basename $2).hex"
+}
+
 ~/scripts/check_missing.sh
 neofetch
