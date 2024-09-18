@@ -8,3 +8,5 @@
 	autoSetupRemote = true
 [alias]
 	rebase-onto = "!f() { git rebase --onto main $(git merge-base \"$1\" \"$2\") \"$1\"; }; f"
+[init]
+	defaultBranch = main
