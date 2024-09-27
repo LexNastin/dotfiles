@@ -15,7 +15,6 @@ yabai -m config \
     layout bsp
 
 yabai -m config external_bar all:32:0
-
 function yabai_rule {
     yabai -m rule --add "$@"
     yabai -m rule --apply "$@"
@@ -24,9 +23,11 @@ function yabai_rule {
 yabai_rule app="^Safari$" space=1
 yabai_rule app="^Telegram$" space=2
 yabai_rule app="^kitty$" space=3
+yabai_rule app="^Linear$" space=4
 yabai_rule app="^Discord$" space=4
 yabai_rule app="^Music$" space=5
 yabai_rule app="^Slack$" space=10
+yabai_rule app='^Calendar$' space=11
 open -a /Applications/kitty.app
 
 yabai -m rule --add app='^System Information$' manage=off
