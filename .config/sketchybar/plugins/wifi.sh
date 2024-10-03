@@ -1,10 +1,6 @@
 #!/bin/sh
 
-INFO="$(networksetup -listallhardwareports | awk '/Wi-Fi/{getline; print $2}' | xargs networksetup -getairportnetwork | sed "s/Current Wi-Fi Network: //")"
-if [[ $INFO == "You are not associated with an AirPort network." ]]; then
-    INFO=""
-fi
-
+INFO="$(ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}')"
 WIFI=${INFO:-"Not Connected"}
 ICON="󰤨"
 IP=$(ipconfig getifaddr en0)
