@@ -11,6 +11,9 @@ missing=()
 [ ! $(command -v neofetch ) ] && missing+=("neofetch")
 [ ! $(command -v sudo) ] && missing+=("sudo")
 [ ! $(command -v node) ] && missing+=("node.js")
+[ ! $(command -v pyenv) ] && missing+=("pyenv")
+[ ! $(command -v pyenv) ] && missing+=("pyenv") && missing+=("pyenv-virtualenv")
+[ $(command -v pyenv) ] && [[ ! -d $(pyenv root)/plugins/pyenv-virtualenv ]] && missing+=("pyenv-virtualenv")
 
 # fonts
 [ $(command -v fc-list) ] && [ -z "$(fc-list | grep "FiraCode Nerd Font Mono")" ] && missing+=("FiraCode Nerd Font Mono")

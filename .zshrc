@@ -148,6 +148,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+if [ $(command -v pyenv) ]; then
+    export PYENV_ROOT="$(pyenv root)"
+    export PATH=$PYENV_ROOT/shims:$PATH
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    [[ -d $(pyenv root)/plugins/pyenv-virtualenv ]] && eval "$(pyenv virtualenv-init -)"
+fi
+
+
 alias :q="exit"
 alias c="clear"
 alias x="cd; reset; neofetch"
