@@ -15,7 +15,7 @@ if [ $(command -v pyenv) ]; then
     [[ ! -d $(pyenv root)/plugins/pyenv-virtualenv ]] && missing+=("pyenv-virtualenv")
 else
     missing+=("pyenv")
-    [[ ! -d $(pyenv root)/plugins/pyenv-virtualenv ]] && missing+=("pyenv-virtualenv")
+    missing+=("pyenv-virtualenv")
 fi
 
 # fonts
