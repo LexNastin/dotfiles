@@ -118,6 +118,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export DEVKITARM=/opt/devkitpro/devkitARM
     export PATH=/opt/devkitpro/devkitA64/bin:$PATH
     # export PATH=/opt/homebrew/Cellar/openjdk/20.0.1/bin:$PATH
+    export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
 
     # perl setup
     export XDG_DATA_DIRS=/opt/homebrew/share
