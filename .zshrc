@@ -100,7 +100,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+AUTOENV_FILE_ENTER=.autoenv.zsh
+AUTOENV_FILE_LEAVE=.autoenv.zsh
+AUTOENV_HANDLE_LEAVE=1
+
 source ~/.zshcustomload.sh
+source ~/zsh-autoenv/autoenv.zsh
 
 # setup path
 export PATH=$HOME/.local/bin:$PATH
@@ -154,7 +159,7 @@ if [ $(command -v pyenv) ]; then
     export PATH=$PYENV_ROOT/shims:$PATH
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
-    [[ -d $(pyenv root)/plugins/pyenv-virtualenv ]] && eval "$(pyenv virtualenv-init -)"
+    # [[ -d $(pyenv root)/plugins/pyenv-virtualenv ]] && eval "$(pyenv virtualenv-init -)"
 fi
 
 
