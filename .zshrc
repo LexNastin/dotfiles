@@ -248,4 +248,4 @@ bdiff() {
 }
 
 ~/scripts/check_missing.sh
-# neofetch # TODO: replace with Archey4
+neofetch # TODO: replace with Archey4
