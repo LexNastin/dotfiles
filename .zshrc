@@ -116,8 +116,8 @@ alias py=python3
 alias sudoi="$(which sudo) -i "
 alias snv="$(which sudo) -e"
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    ssh-add --apple-use-keychain ~/.ssh/id_ed25519 > /dev/null 2&>1
-    ssh-add --apple-use-keychain ~/.ssh/id_ed25519_alt > /dev/null 2&>1
+    (ssh-add --apple-use-keychain ~/.ssh/id_ed25519 > /dev/null 2>&1 &)
+    (ssh-add --apple-use-keychain ~/.ssh/id_ed25519_alt > /dev/null 2>&1 &)
     export DEVKITPATH=/opt/devkitpro
     export DEVKITPRO=/opt/devkitpro
     export DEVKITARM=/opt/devkitpro/devkitARM
@@ -150,7 +150,25 @@ fi
 
 [ $(command -v nvim) ] && export EDITOR="$(which nvim)"
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+lazy_load_nvm() {
+    unset -f node npm nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+}
+
+node() {
+  lazy_load_nvm
+  node $@
+}
+
+npm() {
+    lazy_load_nvm
+    npm $@
+}
+
+nvm() {
+  lazy_load_nvm
+  nvm $@
+}
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
@@ -158,7 +176,14 @@ if [ $(command -v pyenv) ]; then
     export PYENV_ROOT="$(pyenv root)"
     export PATH=$PYENV_ROOT/shims:$PATH
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
+    lazy_load_pyenv() {
+        unset -f pyenv
+        eval "$(pyenv init -)"
+    }
+    pyenv() {
+        lazy_load_pyenv
+        pyenv $@
+    }
     # [[ -d $(pyenv root)/plugins/pyenv-virtualenv ]] && eval "$(pyenv virtualenv-init -)"
 fi
 
@@ -223,4 +248,4 @@ bdiff() {
 }
 
 ~/scripts/check_missing.sh
-neofetch
+# neofetch # TODO: replace with Archey4
