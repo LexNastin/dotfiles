@@ -140,6 +140,8 @@ else
     export BOX64_LOG=0
     export BOX64_NOBANNER=1
     export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
     alias n="nmtui"
     if [[ "$KITTY_WINDOW_ID" ]]; then
