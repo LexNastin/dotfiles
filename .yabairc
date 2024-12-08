@@ -25,6 +25,7 @@ yabai_rule app="^Telegram$" space=2
 yabai_rule app="^kitty$" space=3
 yabai_rule app="^Linear$" space=4
 yabai_rule app="^Discord$" space=4
+yabai_rule app="^Vesktop$" space=4
 yabai_rule app="^Music$" space=5
 yabai_rule app="^Slack$" space=10
 yabai_rule app='^Calendar$' space=11
