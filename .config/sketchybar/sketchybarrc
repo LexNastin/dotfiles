@@ -22,14 +22,35 @@ sketchybar --default \
 
 # left side
 if [ -e ~/.work ]; then
-    SPACE_ICONS=("Safari" "Telegram" "Terminal" "Linear" "Music" "6" "7" "8" "9" "Slack")
+    #                                                    these two icons show to the left  v   v
+    SPACE_ICONS=("Safari" "Telegram" "Terminal" "Linear"  "Music" "6" "7" "8" "9" "Slack" "󰃭" "󰊓")
 else
-    SPACE_ICONS=("Safari" "Telegram" "Terminal" "Discord" "Music" "6" "7" "8" "9" "Slack")
+    SPACE_ICONS=("Safari" "Telegram" "Terminal" "Discord" "Music" "6" "7" "8" "9" "Slack" "󰃭" "󰊓")
 fi
+
+# i'm lazy as shit. i'll just copy paste.
+for i in "${!SPACE_ICONS[@]}"
+do
+    sid=$((12-$i))
+    icon=$(($sid-1))
+    if [ $sid -le 10 ]; then
+        break
+    fi
+    sketchybar --add space space.$sid left --set space.$sid \
+        associated_space=$sid \
+        label=${SPACE_ICONS[$icon]} \
+        icon.drawing=off \
+        background.color=0x20000000 \
+        script="$PLUGIN_DIR/space.sh" \
+        click_script="yabai -m space --focus $sid"
+    done
 
 for i in "${!SPACE_ICONS[@]}"
 do
     sid=$(($i+1))
+    if [ $sid -gt 10 ]; then
+        break
+    fi
     sketchybar --add space space.$sid left --set space.$sid \
         associated_space=$sid \
         label=${SPACE_ICONS[i]} \
